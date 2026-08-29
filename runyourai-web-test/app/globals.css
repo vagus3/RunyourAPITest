@@ -1,3 +1,10 @@
 /* app/globals.css */
 @import "tailwindcss";
 @source ".";
+
+@theme {
+  --color-dark-bg: #101114;
+  --color-dark-surface: #17181a;
+  --color-dark-card: #17181c;
+  --color-light-bg: #f7f8fa;
+}

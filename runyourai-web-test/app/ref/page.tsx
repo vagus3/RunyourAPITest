@@ -137,10 +137,10 @@ export default function AuthPageRef() {
     };
 
     return (
-        <main className="min-h-screen bg-[#f7f8fa] text-[#17181a] antialiased">
+        <main className="min-h-screen bg-light-bg text-dark-surface antialiased">
             {/* Toast */}
             {toast && (
-                <div className="fixed right-5 top-5 z-50 flex items-center gap-3 rounded-xl border border-black/[0.08] bg-white px-4 py-3 text-sm font-medium text-[#17181a] shadow-xl shadow-black/10">
+                <div className="fixed right-5 top-5 z-50 flex items-center gap-3 rounded-xl border border-black/10 bg-white px-4 py-3 text-sm font-medium text-dark-surface shadow-xl shadow-black/10">
                     <span
                         className={`h-2 w-2 rounded-full ${toast.type === "success"
                                 ? "bg-emerald-500"
@@ -151,14 +151,14 @@ export default function AuthPageRef() {
                 </div>
             )}
 
-            <div className="grid min-h-screen lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="grid min-h-screen lg:grid-cols-2">
                 {/* =====================================================
                     LEFT — PRODUCT HERO
                 ====================================================== */}
-                <section className="relative hidden overflow-hidden bg-[#101114] px-12 py-10 text-white lg:flex xl:px-20">
+                <section className="relative hidden overflow-hidden bg-dark-bg px-12 py-10 text-white lg:flex xl:px-20">
                     {/* subtle background grid */}
                     <div
-                        className="absolute inset-0 opacity-[0.055]"
+                        className="absolute inset-0 opacity-5"
                         style={{
                             backgroundImage:
                                 "linear-gradient(rgba(255,255,255,.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.8) 1px, transparent 1px)",
@@ -167,34 +167,34 @@ export default function AuthPageRef() {
                     />
 
                     {/* ambient glow */}
-                    <div className="absolute -right-32 top-1/4 h-[500px] w-[500px] rounded-full bg-blue-600/10 blur-[140px]" />
+                    <div className="absolute -right-32 top-1/4 h-128 w-128 rounded-full bg-blue-600/10 blur-3xl" />
 
                     <div className="relative z-10 flex w-full flex-col">
                         {/* Brand */}
                         <div className="flex items-center gap-3">
-                            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-[#101114]">
+                            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-dark-bg">
                                 <svg
                                     viewBox="0 0 24 24"
-                                    className="h-[18px] w-[18px]"
+                                    className="h-4.5 w-4.5"
                                     fill="currentColor"
                                 >
                                     <path d="M13.1 2 4 13.2h6.1L9.2 22 20 9.1h-6.3L13.1 2Z" />
                                 </svg>
                             </div>
 
-                            <span className="text-[15px] font-semibold tracking-tight">
+                            <span className="text-sm font-semibold tracking-tight">
                                 RunYourAI
                             </span>
                         </div>
 
                         {/* Main */}
                         <div className="my-auto max-w-xl py-20">
-                            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium text-white/60">
+                            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/60">
                                 <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
                                 AI Agent Evaluation Platform
                             </div>
 
-                            <h2 className="text-[42px] font-semibold leading-[1.12] tracking-[-0.04em] xl:text-[50px]">
+                            <h2 className="text-4xl font-semibold leading-tight tracking-tighter xl:text-5xl">
                                 AI 에이전트의 성능을
                                 <br />
                                 <span className="text-white/45">
@@ -202,24 +202,24 @@ export default function AuthPageRef() {
                                 </span>
                             </h2>
 
-                            <p className="mt-7 max-w-md text-[14px] leading-7 text-white/45">
+                            <p className="mt-7 max-w-md text-sm leading-7 text-white/45">
                                 다양한 AI 코딩 에이전트를 동일한 환경에서
                                 실행하고, 성능과 안정성을 객관적으로
                                 비교하세요.
                             </p>
 
                             {/* Code preview */}
-                            <div className="mt-12 overflow-hidden rounded-xl border border-white/[0.08] bg-[#17181c] shadow-2xl shadow-black/20">
-                                <div className="flex items-center gap-1.5 border-b border-white/[0.06] px-4 py-3">
+                            <div className="mt-12 overflow-hidden rounded-xl border border-white/10 bg-dark-card shadow-2xl shadow-black/20">
+                                <div className="flex items-center gap-1.5 border-b border-white/5 px-4 py-3">
                                     <span className="h-2 w-2 rounded-full bg-white/15" />
                                     <span className="h-2 w-2 rounded-full bg-white/15" />
                                     <span className="h-2 w-2 rounded-full bg-white/15" />
-                                    <span className="ml-3 font-mono text-[10px] text-white/25">
+                                    <span className="ml-3 font-mono text-xs text-white/25">
                                         benchmark.ts
                                     </span>
                                 </div>
 
-                                <div className="space-y-2 px-5 py-5 font-mono text-[11px] leading-5">
+                                <div className="space-y-2 px-5 py-5 font-mono text-xs leading-5">
                                     <div className="text-white/30">
                                         <span className="text-blue-400/70">
                                             const
@@ -259,7 +259,7 @@ export default function AuthPageRef() {
                                 </div>
                             </div>
 
-                            <div className="mt-6 flex items-center gap-8 text-[11px] text-white/30">
+                            <div className="mt-6 flex items-center gap-8 text-xs text-white/30">
                                 <span>Benchmark</span>
                                 <span>Evaluation</span>
                                 <span>Observability</span>
@@ -267,7 +267,7 @@ export default function AuthPageRef() {
                         </div>
 
                         {/* Footer */}
-                        <div className="flex items-center justify-between text-[11px] text-white/25">
+                        <div className="flex items-center justify-between text-xs text-white/25">
                             <span>© 2026 RunYourAI Inc.</span>
                             <span>Built for AI developers</span>
                         </div>
@@ -278,10 +278,10 @@ export default function AuthPageRef() {
                     RIGHT — AUTH
                 ====================================================== */}
                 <section className="flex min-h-screen items-center justify-center px-5 py-10 sm:px-10">
-                    <div className="w-full max-w-[400px]">
+                    <div className="w-full max-w-sm">
                         {/* Mobile logo */}
                         <div className="mb-12 flex items-center gap-2 lg:hidden">
-                            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#17181a] text-white">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-dark-surface text-white">
                                 <svg
                                     viewBox="0 0 24 24"
                                     className="h-4 w-4"
@@ -298,13 +298,13 @@ export default function AuthPageRef() {
 
                         {/* Header */}
                         <div className="mb-9">
-                            <h1 className="text-[28px] font-semibold tracking-[-0.035em] text-[#17181a]">
+                            <h1 className="text-3xl font-semibold tracking-tight text-dark-surface">
                                 {activeTab === "login"
                                     ? "다시 만나서 반가워요."
                                     : "계정을 만들어보세요."}
                             </h1>
 
-                            <p className="mt-2 text-[13px] leading-6 text-[#73767c]">
+                            <p className="mt-2 text-sm leading-6 text-slate-500">
                                 {activeTab === "login"
                                     ? "RunYourAI Workspace에 로그인하세요."
                                     : "몇 가지 정보만 입력하면 바로 시작할 수 있습니다."}
@@ -312,21 +312,21 @@ export default function AuthPageRef() {
                         </div>
 
                         {/* Tabs */}
-                        <div className="mb-7 flex border-b border-black/[0.08]">
+                        <div className="mb-7 flex border-b border-black/10">
                             <button
                                 type="button"
                                 onClick={() =>
                                     setActiveTab("login")
                                 }
-                                className={`relative flex-1 pb-3 text-[13px] font-medium transition-colors ${activeTab === "login"
-                                        ? "text-[#17181a]"
-                                        : "text-[#96999f] hover:text-[#55585e]"
+                                className={`relative flex-1 pb-3 text-sm font-medium transition-colors ${activeTab === "login"
+                                        ? "text-dark-surface"
+                                        : "text-slate-400 hover:text-slate-600"
                                     }`}
                             >
                                 로그인
 
                                 {activeTab === "login" && (
-                                    <span className="absolute inset-x-0 bottom-[-1px] h-[2px] rounded-full bg-[#17181a]" />
+                                    <span className="absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-dark-surface" />
                                 )}
                             </button>
 
@@ -335,15 +335,15 @@ export default function AuthPageRef() {
                                 onClick={() =>
                                     setActiveTab("register")
                                 }
-                                className={`relative flex-1 pb-3 text-[13px] font-medium transition-colors ${activeTab === "register"
-                                        ? "text-[#17181a]"
-                                        : "text-[#96999f] hover:text-[#55585e]"
+                                className={`relative flex-1 pb-3 text-sm font-medium transition-colors ${activeTab === "register"
+                                        ? "text-dark-surface"
+                                        : "text-slate-400 hover:text-slate-600"
                                     }`}
                             >
                                 회원가입
 
                                 {activeTab === "register" && (
-                                    <span className="absolute inset-x-0 bottom-[-1px] h-[2px] rounded-full bg-[#17181a]" />
+                                    <span className="absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-dark-surface" />
                                 )}
                             </button>
                         </div>
@@ -352,7 +352,7 @@ export default function AuthPageRef() {
                         <div className="grid grid-cols-2 gap-3">
                             <button
                                 type="button"
-                                className="flex h-11 items-center justify-center gap-2.5 rounded-lg border border-black/[0.1] bg-white text-[12px] font-medium text-[#33363a] transition hover:bg-[#f7f7f8] active:scale-[0.99]"
+                                className="flex h-11 items-center justify-center gap-2.5 rounded-lg border border-black/10 bg-white text-xs font-medium text-slate-700 transition hover:bg-slate-50 active:scale-95"
                             >
                                 <svg
                                     className="h-4 w-4"
@@ -380,7 +380,7 @@ export default function AuthPageRef() {
 
                             <button
                                 type="button"
-                                className="flex h-11 items-center justify-center gap-2.5 rounded-lg border border-black/[0.1] bg-white text-[12px] font-medium text-[#33363a] transition hover:bg-[#f7f7f8] active:scale-[0.99]"
+                                className="flex h-11 items-center justify-center gap-2.5 rounded-lg border border-black/10 bg-white text-xs font-medium text-slate-700 transition hover:bg-slate-50 active:scale-95"
                             >
                                 <svg
                                     className="h-4 w-4"
@@ -395,11 +395,11 @@ export default function AuthPageRef() {
 
                         {/* Divider */}
                         <div className="my-7 flex items-center gap-4">
-                            <div className="h-px flex-1 bg-black/[0.08]" />
-                            <span className="text-[10px] font-medium uppercase tracking-widest text-[#a1a4a9]">
+                            <div className="h-px flex-1 bg-black/10" />
+                            <span className="text-xs font-medium uppercase tracking-widest text-slate-400">
                                 또는
                             </span>
-                            <div className="h-px flex-1 bg-black/[0.08]" />
+                            <div className="h-px flex-1 bg-black/10" />
                         </div>
 
                         {/* Login */}
@@ -409,7 +409,7 @@ export default function AuthPageRef() {
                                 className="space-y-5"
                             >
                                 <div>
-                                    <label className="mb-2 block text-[12px] font-medium text-[#3d4045]">
+                                    <label className="mb-2 block text-xs font-medium text-slate-700">
                                         이메일
                                     </label>
 
@@ -420,15 +420,15 @@ export default function AuthPageRef() {
                                             handleLoginEmailChange
                                         }
                                         placeholder="name@company.com"
-                                        className={`h-11 w-full rounded-lg border bg-white px-3.5 text-[13px] text-[#17181a] outline-none transition placeholder:text-[#b0b3b8] ${loginEmailError
+                                        className={`h-11 w-full rounded-lg border bg-white px-3.5 text-sm text-dark-surface outline-none transition placeholder:text-slate-400 ${loginEmailError
                                                 ? "border-red-400 focus:ring-4 focus:ring-red-500/10"
-                                                : "border-black/[0.1] focus:border-[#17181a] focus:ring-4 focus:ring-black/[0.04]"
+                                                : "border-black/10 focus:border-dark-surface focus:ring-4 focus:ring-black/5"
                                             }`}
                                         required
                                     />
 
                                     {loginEmailError && (
-                                        <p className="mt-1.5 text-[11px] text-red-500">
+                                        <p className="mt-1.5 text-xs text-red-500">
                                             유효한 이메일 형식을
                                             입력해 주세요.
                                         </p>
@@ -437,13 +437,13 @@ export default function AuthPageRef() {
 
                                 <div>
                                     <div className="mb-2 flex items-center justify-between">
-                                        <label className="block text-[12px] font-medium text-[#3d4045]">
+                                        <label className="block text-xs font-medium text-slate-700">
                                             비밀번호
                                         </label>
 
                                         <button
                                             type="button"
-                                            className="text-[11px] font-medium text-[#73767c] hover:text-[#17181a]"
+                                            className="text-xs font-medium text-slate-500 hover:text-dark-surface"
                                         >
                                             비밀번호 재설정
                                         </button>
@@ -463,7 +463,7 @@ export default function AuthPageRef() {
                                                 )
                                             }
                                             placeholder="비밀번호를 입력하세요"
-                                            className="h-11 w-full rounded-lg border border-black/[0.1] bg-white px-3.5 pr-11 text-[13px] text-[#17181a] outline-none transition placeholder:text-[#b0b3b8] focus:border-[#17181a] focus:ring-4 focus:ring-black/[0.04]"
+                                            className="h-11 w-full rounded-lg border border-black/10 bg-white px-3.5 pr-11 text-sm text-dark-surface outline-none transition placeholder:text-slate-400 focus:border-dark-surface focus:ring-4 focus:ring-black/5"
                                             required
                                         />
 
@@ -474,7 +474,7 @@ export default function AuthPageRef() {
                                                     !showLoginPassword
                                                 )
                                             }
-                                            className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-[#a1a4a9] hover:text-[#55585e]"
+                                            className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-slate-600"
                                             aria-label="비밀번호 표시"
                                         >
                                             {showLoginPassword ? (
@@ -525,9 +525,9 @@ export default function AuthPageRef() {
                                 <label className="flex cursor-pointer items-center gap-2 pt-0.5">
                                     <input
                                         type="checkbox"
-                                        className="h-3.5 w-3.5 rounded border-black/20 accent-[#17181a]"
+                                        className="h-3.5 w-3.5 rounded border-black/20 accent-dark-surface"
                                     />
-                                    <span className="text-[11px] text-[#73767c]">
+                                    <span className="text-xs text-slate-500">
                                         로그인 상태 30일간 유지
                                     </span>
                                 </label>
@@ -535,7 +535,7 @@ export default function AuthPageRef() {
                                 <button
                                     type="submit"
                                     disabled={isLoading}
-                                    className="flex h-11 w-full items-center justify-center rounded-lg bg-[#17181a] text-[13px] font-medium text-white transition hover:bg-[#292b2f] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50"
+                                    className="flex h-11 w-full items-center justify-center rounded-lg bg-dark-surface text-sm font-medium text-white transition hover:bg-slate-800 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
                                 >
                                     {isLoading ? (
                                         <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
@@ -553,7 +553,7 @@ export default function AuthPageRef() {
                                 className="space-y-4"
                             >
                                 <div>
-                                    <label className="mb-2 block text-[12px] font-medium text-[#3d4045]">
+                                    <label className="mb-2 block text-xs font-medium text-slate-700">
                                         이름
                                     </label>
 
@@ -564,13 +564,13 @@ export default function AuthPageRef() {
                                             setRegName(e.target.value)
                                         }
                                         placeholder="홍길동"
-                                        className="h-11 w-full rounded-lg border border-black/[0.1] bg-white px-3.5 text-[13px] outline-none transition placeholder:text-[#b0b3b8] focus:border-[#17181a] focus:ring-4 focus:ring-black/[0.04]"
+                                        className="h-11 w-full rounded-lg border border-black/10 bg-white px-3.5 text-sm outline-none transition placeholder:text-slate-400 focus:border-dark-surface focus:ring-4 focus:ring-black/5"
                                         required
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="mb-2 block text-[12px] font-medium text-[#3d4045]">
+                                    <label className="mb-2 block text-xs font-medium text-slate-700">
                                         이메일
                                     </label>
 
@@ -581,15 +581,15 @@ export default function AuthPageRef() {
                                             handleRegEmailChange
                                         }
                                         placeholder="name@company.com"
-                                        className={`h-11 w-full rounded-lg border bg-white px-3.5 text-[13px] outline-none transition placeholder:text-[#b0b3b8] ${regEmailError
+                                        className={`h-11 w-full rounded-lg border bg-white px-3.5 text-sm outline-none transition placeholder:text-slate-400 ${regEmailError
                                                 ? "border-red-400"
-                                                : "border-black/[0.1] focus:border-[#17181a] focus:ring-4 focus:ring-black/[0.04]"
+                                                : "border-black/10 focus:border-dark-surface focus:ring-4 focus:ring-black/5"
                                             }`}
                                         required
                                     />
 
                                     {regEmailError && (
-                                        <p className="mt-1.5 text-[11px] text-red-500">
+                                        <p className="mt-1.5 text-xs text-red-500">
                                             유효한 이메일 형식을
                                             입력해 주세요.
                                         </p>
@@ -597,7 +597,7 @@ export default function AuthPageRef() {
                                 </div>
 
                                 <div>
-                                    <label className="mb-2 block text-[12px] font-medium text-[#3d4045]">
+                                    <label className="mb-2 block text-xs font-medium text-slate-700">
                                         비밀번호
                                     </label>
 
@@ -615,7 +615,7 @@ export default function AuthPageRef() {
                                                 )
                                             }
                                             placeholder="8자 이상 입력하세요"
-                                            className="h-11 w-full rounded-lg border border-black/[0.1] bg-white px-3.5 pr-11 text-[13px] outline-none transition placeholder:text-[#b0b3b8] focus:border-[#17181a] focus:ring-4 focus:ring-black/[0.04]"
+                                            className="h-11 w-full rounded-lg border border-black/10 bg-white px-3.5 pr-11 text-sm outline-none transition placeholder:text-slate-400 focus:border-dark-surface focus:ring-4 focus:ring-black/5"
                                             required
                                         />
 
@@ -626,7 +626,7 @@ export default function AuthPageRef() {
                                                     !showRegPassword
                                                 )
                                             }
-                                            className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-[#a1a4a9] hover:text-[#55585e]"
+                                            className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-slate-600"
                                         >
                                             {showRegPassword ? (
                                                 <svg
@@ -686,13 +686,13 @@ export default function AuthPageRef() {
                                                                     2
                                                                     ? "bg-amber-400"
                                                                     : "bg-emerald-500"
-                                                            : "bg-black/[0.07]"
+                                                            : "bg-black/10"
                                                         }`}
                                                 />
                                             ))}
                                         </div>
 
-                                        <div className="mt-1.5 flex justify-between text-[10px] text-[#9b9ea3]">
+                                        <div className="mt-1.5 flex justify-between text-xs text-slate-400">
                                             <span>
                                                 비밀번호 안전도
                                             </span>
@@ -725,7 +725,7 @@ export default function AuthPageRef() {
                                 </div>
 
                                 <div>
-                                    <label className="mb-2 block text-[12px] font-medium text-[#3d4045]">
+                                    <label className="mb-2 block text-xs font-medium text-slate-700">
                                         비밀번호 확인
                                     </label>
 
@@ -738,15 +738,15 @@ export default function AuthPageRef() {
                                             )
                                         }
                                         placeholder="비밀번호를 다시 입력하세요"
-                                        className={`h-11 w-full rounded-lg border bg-white px-3.5 text-[13px] outline-none transition placeholder:text-[#b0b3b8] ${passwordMatchError
+                                        className={`h-11 w-full rounded-lg border bg-white px-3.5 text-sm outline-none transition placeholder:text-slate-400 ${passwordMatchError
                                                 ? "border-red-400"
-                                                : "border-black/[0.1] focus:border-[#17181a] focus:ring-4 focus:ring-black/[0.04]"
+                                                : "border-black/10 focus:border-dark-surface focus:ring-4 focus:ring-black/5"
                                             }`}
                                         required
                                     />
 
                                     {passwordMatchError && (
-                                        <p className="mt-1.5 text-[11px] text-red-500">
+                                        <p className="mt-1.5 text-xs text-red-500">
                                             비밀번호가 일치하지 않습니다.
                                         </p>
                                     )}
@@ -756,20 +756,20 @@ export default function AuthPageRef() {
                                     <input
                                         type="checkbox"
                                         required
-                                        className="mt-0.5 h-3.5 w-3.5 rounded border-black/20 accent-[#17181a]"
+                                        className="mt-0.5 h-3.5 w-3.5 rounded border-black/20 accent-dark-surface"
                                     />
 
-                                    <span className="text-[11px] leading-5 text-[#73767c]">
+                                    <span className="text-xs leading-5 text-slate-500">
                                         <a
                                             href="#"
-                                            className="font-medium text-[#33363a] underline underline-offset-2"
+                                            className="font-medium text-slate-700 underline underline-offset-2"
                                         >
                                             서비스 이용약관
                                         </a>{" "}
                                         및{" "}
                                         <a
                                             href="#"
-                                            className="font-medium text-[#33363a] underline underline-offset-2"
+                                            className="font-medium text-slate-700 underline underline-offset-2"
                                         >
                                             개인정보 처리방침
                                         </a>
@@ -784,7 +784,7 @@ export default function AuthPageRef() {
                                         passwordMatchError ||
                                         regEmailError
                                     }
-                                    className="mt-1 flex h-11 w-full items-center justify-center rounded-lg bg-[#17181a] text-[13px] font-medium text-white transition hover:bg-[#292b2f] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50"
+                                    className="mt-1 flex h-11 w-full items-center justify-center rounded-lg bg-dark-surface text-sm font-medium text-white transition hover:bg-slate-800 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
                                 >
                                     {isLoading ? (
                                         <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
@@ -796,7 +796,7 @@ export default function AuthPageRef() {
                         )}
 
                         {/* Bottom */}
-                        <p className="mt-8 text-center text-[10px] leading-5 text-[#a1a4a9]">
+                        <p className="mt-8 text-center text-xs leading-5 text-slate-400">
                             계속 진행하면 RunYourAI의 서비스 약관 및
                             개인정보 처리방침에 동의하게 됩니다.
                         </p>
