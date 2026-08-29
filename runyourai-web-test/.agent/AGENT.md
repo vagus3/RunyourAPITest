@@ -19,6 +19,9 @@
 * **타입 안정성 (Type Safety)**: 
   * `any` 타입 사용은 어떠한 경우에도 허용되지 않습니다.
   * API 응답 및 요청 데이터에 대한 DTO(Data Transfer Object) 인터페이스를 명시적으로 선언하세요.
+* **Zod 유효성 검증 규칙 (Zod Schema Rules)**:
+  * Zod (v3.23+/v4)에서는 `z.email("...")` 단축 헬퍼 함수와 `z.string().email("...")` 구문 모두 정상 작동하는 올바른 문법입니다.
+  * 폼 유효성 검증 시 프로젝트 스타일 통일을 위해 `z.email(...)` 단축 표현 또는 `z.string().email(...)`을 명확하고 일관되게 사용하고 `z.object({...})` 스키마와 `safeParse()`를 활용하세요.
 
 ---
 

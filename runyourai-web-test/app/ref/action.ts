@@ -15,15 +15,16 @@ const mockUserDb: User[] = [
 
 // 유효성 검사 스키마 (Zod)
 const loginSchema = z.object({
-    email: z.string().email("올바른 이메일 형식을 입력해주세요."),
+    email: z.email("올바른 이메일 형식을 입력해주세요."),
     password: z.string().min(1, "비밀번호를 입력해주세요."),
 });
 
 const registerSchema = z.object({
     name: z.string().min(2, "이름은 2자 이상이어야 합니다."),
-    email: z.string().email("올바른 이메일 형식을 입력해주세요."),
+    email: z.email("올바른 이메일 형식을 입력해주세요."),
     password: z.string().min(8, "비밀번호는 최소 8자 이상이어야 합니다."),
 });
+
 
 
 export type AuthFormState = {
