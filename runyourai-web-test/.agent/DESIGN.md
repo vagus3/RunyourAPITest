@@ -2,6 +2,7 @@
 
 ## 1. 스타일 기본 규칙
 - Style: B2B SaaS 대시보드 스타일 (Light mode 기본 + Dark Hero Accent)
+- Root Layout Base: `RootLayout`의 `<body>`에 기본 스타일 적용 (`bg-light-bg text-dark-surface antialiased font-sans`). 모든 페이지에서 개별 중복 선언 생략.
 - Utility Helper: 조건부 클래스 결합 시 반드시 `@/shared/lib/utils`의 `cn()` (`clsx` + `tailwind-merge`) 활용
 - Arbitrary Bracket 금지: `text-[12px]`, `p-[13px]`, `bg-[#17181a]` 등의 임의 수치/HEX 값 대신 Tailwind 표준 유틸리티 클래스 및 `@theme` 토큰(`dark-surface`, `dark-bg` 등)만 활용
 
@@ -18,6 +19,7 @@
   - Warning (≥80%): `bg-amber-50 text-amber-700 border-amber-200`
   - Error (≥100%): `bg-rose-50 text-rose-700 border-rose-200`
 - Typography & Spacing: Tailwind 표준 단위만 사용 (`text-xs`, `text-sm`, `text-3xl`, `text-4xl`, `text-5xl`, `p-2`, `p-4`, `gap-3` 등).
+
 
 ## 3. UI 스니펫 예시 (Progress Bar)
 ```tsx
