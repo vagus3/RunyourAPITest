@@ -1,0 +1,22 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+>
+    <!-- 눈 윤곽 -->
+    <path
+        stroke-width="1.8"
+        d="M2.458 12C3.732 7.943 7.522 5 12 5s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S3.732 16.057 2.458 12Z"
+    />
+
+    <!-- 눈동자 -->
+    <circle
+        cx="12"
+        cy="12"
+        r="3"
+        stroke-width="1.8"
+    />
+</svg>
