@@ -27,3 +27,36 @@
   <div className={cn("h-full transition-all duration-300", isWarning ? "bg-amber-500" : "bg-blue-600")} style={{ width: `${percent}%` }} />
 </div>
 ```
+
+---
+
+## 4. 인증 폼 (Auth Form) 디자인 규칙
+
+> 상세 기능 스펙은 `.agent/AUTH_SPEC.md` 참조
+
+### Input 필드
+```
+기본: h-11 w-full rounded-lg border bg-white px-3.5 text-sm outline-none transition placeholder:text-slate-400 focus:border-dark-surface focus:ring-4 focus:ring-black/5
+에러: border-red-400 focus:ring-4 focus:ring-red-500/10
+레이블: mb-2 block text-xs font-medium text-slate-700
+에러 메시지: mt-1.5 text-xs text-red-500
+```
+
+### Submit 버튼
+```
+h-11 w-full rounded-lg bg-dark-surface text-sm font-medium text-white transition
+hover:bg-slate-800 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50
+```
+- pending 중: 흰색 스피너 (`animate-spin rounded-full border-2 border-white/30 border-t-white h-4 w-4`)
+
+### 비밀번호 강도 바 색상 (회원가입 전용)
+| 강도 | 색상 | 텍스트 색 |
+|---|---|---|
+| 1 (약함) | `bg-red-400` | `text-red-500` |
+| 2 (보통) | `bg-amber-400` | `text-amber-500` |
+| 3 (안전함) | `bg-emerald-500` | `text-emerald-500` |
+| 0 (미입력) | `bg-black/10` | — |
+
+### Toast 알림 색상
+- 성공 도트: `bg-emerald-500`
+- 실패 도트: `bg-red-500`
