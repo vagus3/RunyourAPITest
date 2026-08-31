@@ -163,8 +163,8 @@ export default function AuthPageRef() {
                             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-dark-bg">
                                 <img
                                     src="/runyour.svg"
-                                    alt="RunYourAI"
-                                    className="h-4.5 w-4.5" />
+                                    alt=""
+                                    className="h-4 w-4" />
                             </div>
 
                             <span className="text-sm font-semibold tracking-tight">
