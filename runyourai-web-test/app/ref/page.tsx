@@ -24,7 +24,7 @@ export default function AuthPageRef() {
     const [regConfirmPassword, setRegConfirmPassword] = useState("");
     const [regEmailError, setRegEmailError] = useState(false);
 
-    // useActionState for form submissions
+    // 서버 액션 사용
     const [loginState, loginFormAction, isLoginPending] = useActionState(
         loginAction,
         null
@@ -34,9 +34,7 @@ export default function AuthPageRef() {
         null
     );
 
-    const isLoading = isLoginPending || isRegisterPending;
-
-    // Derived States (No useEffect needed)
+    // derived states
     const passwordStrength = React.useMemo(() => {
         if (!regPassword) return 0;
         let score = 0;
@@ -65,7 +63,7 @@ export default function AuthPageRef() {
                 type: registerState.success ? "success" : "error",
             });
             if (registerState.success) {
-                // Clear fields and switch to login tab
+                // 회원가입 성공 시 폼 비우고 로그인 탭으로 이동
                 setRegName("");
                 setRegEmail("");
                 setRegPassword("");
@@ -130,7 +128,7 @@ export default function AuthPageRef() {
         <main className="min-h-screen bg-light-bg text-dark-surface antialiased">
             {/* Toast */}
             {toast && (
-                <div className="fixed right-5 top-5 z-50 flex items-center gap-3 rounded-xl border border-black/10 bg-white px-4 py-3 text-sm font-medium text-dark-surface shadow-xl shadow-black/10">
+                <div className="fixed right-4 top-4 sm:right-5 sm:top-5 z-50 flex items-center gap-3 rounded-xl border border-black/10 bg-white px-4 py-3 text-sm font-medium text-dark-surface shadow-xl shadow-black/10">
                     <span
                         className={`h-2 w-2 rounded-full ${toast.type === "success"
                             ? "bg-emerald-500"
@@ -156,20 +154,17 @@ export default function AuthPageRef() {
                         }}
                     />
 
-                    {/* ambient glow */}
+                    {/* 야광느낌 */}
                     <div className="absolute -right-32 top-1/4 h-128 w-128 rounded-full bg-blue-600/10 blur-3xl" />
 
                     <div className="relative z-10 flex w-full flex-col">
                         {/* Brand */}
                         <div className="flex items-center gap-3">
                             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-dark-bg">
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    className="h-4.5 w-4.5"
-                                    fill="currentColor"
-                                >
-                                    <path d="M13.1 2 4 13.2h6.1L9.2 22 20 9.1h-6.3L13.1 2Z" />
-                                </svg>
+                                <img
+                                    src="/runyour.svg"
+                                    alt="RunYourAI"
+                                    className="h-4.5 w-4.5" />
                             </div>
 
                             <span className="text-sm font-semibold tracking-tight">
@@ -301,7 +296,7 @@ export default function AuthPageRef() {
                             </p>
                         </div>
 
-                        {/* Tabs */}
+                        {/* 탭 */}
                         <div className="mb-7 flex border-b border-black/10">
                             <button
                                 type="button"
@@ -338,7 +333,7 @@ export default function AuthPageRef() {
                             </button>
                         </div>
 
-                        {/* Social */}
+                        {/* SNS 로그인 */}
                         <div className="grid grid-cols-2 gap-3">
                             <button
                                 type="button"
@@ -357,7 +352,7 @@ export default function AuthPageRef() {
                             </button>
                         </div>
 
-                        {/* Divider */}
+                        {/* 나누기 */}
                         <div className="my-7 flex items-center gap-4">
                             <div className="h-px flex-1 bg-black/10" />
                             <span className="text-xs font-medium uppercase tracking-widest text-slate-400">
@@ -366,7 +361,7 @@ export default function AuthPageRef() {
                             <div className="h-px flex-1 bg-black/10" />
                         </div>
 
-                        {/* Login */}
+                        {/* 로그인 */}
                         {activeTab === "login" && (
                             <form
                                 action={handleLoginAction}
@@ -445,16 +440,13 @@ export default function AuthPageRef() {
 
                                         <button
                                             type="button"
-                                            onClick={() =>
-                                                setShowLoginPassword(
-                                                    !showLoginPassword
-                                                )
-                                            }
+                                            onClick={() => setShowLoginPassword(prev => !prev)}
                                             className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-slate-600"
-                                            aria-label="비밀번호 표시"
+                                            aria-label={showLoginPassword ? "비밀번호 숨기기" : "비밀번호 표시"}
+                                            title={showLoginPassword ? "비밀번호 숨기기" : "비밀번호 표시"}
                                         >
                                             <img
-                                                src={showLoginPassword ? "/public/eye.svg" : "/public/eye-off.svg"}
+                                                src={showLoginPassword ? "/eye.svg" : "/eye-off.svg"}
                                                 alt=""
                                                 className="h-4 w-4"
                                             />
@@ -474,10 +466,10 @@ export default function AuthPageRef() {
 
                                 <button
                                     type="submit"
-                                    disabled={isLoading}
+                                    disabled={isLoginPending}
                                     className="flex h-11 w-full items-center justify-center rounded-lg bg-dark-surface text-sm font-medium text-white transition hover:bg-slate-800 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
                                 >
-                                    {isLoading ? (
+                                    {isLoginPending ? (
                                         <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
                                     ) : (
                                         "로그인"
@@ -486,7 +478,7 @@ export default function AuthPageRef() {
                             </form>
                         )}
 
-                        {/* Register */}
+                        {/* 회원가입 */}
                         {activeTab === "register" && (
                             <form
                                 action={handleRegisterAction}
@@ -532,7 +524,7 @@ export default function AuthPageRef() {
                                         onChange={
                                             handleRegEmailChange
                                         }
-                                        placeholder="name@company.com"
+                                        placeholder="[EMAIL_ADDRESS]"
                                         className={`h-11 w-full rounded-lg border bg-white px-3.5 text-sm outline-none transition placeholder:text-slate-400 ${regEmailError
                                             ? "border-red-400"
                                             : "border-black/10 focus:border-dark-surface focus:ring-4 focus:ring-black/5"
@@ -572,60 +564,22 @@ export default function AuthPageRef() {
                                                     e.target.value
                                                 )
                                             }
-                                            placeholder="8자 이상 입력하세요"
+                                            placeholder="8자 이상 입력하세요(영문, 숫자, 특수문자 포함 권장)"
                                             className="h-11 w-full rounded-lg border border-black/10 bg-white px-3.5 pr-11 text-sm outline-none transition placeholder:text-slate-400 focus:border-dark-surface focus:ring-4 focus:ring-black/5"
                                             required
                                         />
 
                                         <button
                                             type="button"
-                                            onClick={() =>
-                                                setShowRegPassword(
-                                                    !showRegPassword
-                                                )
-                                            }
+                                            onClick={() => setShowRegPassword(prev => !prev)}
                                             className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-slate-600"
+                                            aria-label={showRegPassword ? "비밀번호 숨기기" : "비밀번호 표시"}
+                                            title={showRegPassword ? "비밀번호 숨기기" : "비밀번호 표시"}
                                         >
                                             {showRegPassword ? (
-                                                <svg
-                                                    className="h-4 w-4"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                    stroke="currentColor"
-                                                >
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        strokeWidth={1.8}
-                                                        d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029"
-                                                    />
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        strokeWidth={1.8}
-                                                        d="m3 3 18 18"
-                                                    />
-                                                </svg>
+                                                <img src="/eye-off.svg" className="h-4 w-4" />
                                             ) : (
-                                                <svg
-                                                    className="h-4 w-4"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                    stroke="currentColor"
-                                                >
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        strokeWidth={1.8}
-                                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                                                    />
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        strokeWidth={1.8}
-                                                        d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"
-                                                    />
-                                                </svg>
+                                                <img src="/eye.svg" className="h-4 w-4" />
                                             )}
                                         </button>
                                     </div>
@@ -744,13 +698,13 @@ export default function AuthPageRef() {
                                 <button
                                     type="submit"
                                     disabled={
-                                        isLoading ||
+                                        isRegisterPending ||
                                         passwordMatchError ||
                                         regEmailError
                                     }
                                     className="mt-1 flex h-11 w-full items-center justify-center rounded-lg bg-dark-surface text-sm font-medium text-white transition hover:bg-slate-800 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
                                 >
-                                    {isLoading ? (
+                                    {isRegisterPending ? (
                                         <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
                                     ) : (
                                         "무료로 시작하기"
