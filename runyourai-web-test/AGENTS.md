@@ -61,6 +61,6 @@
 - `.agent/ARCHITECTURE.md`
 - `.agent/DESIGN.md`
 - `.agent/SKILLS.md`
-- `.agent/TESTING.md`
+- `.agent/AUTH_SPEC.md`
 
 작업 유형에 따라 관련 규칙을 확인하고 준수한다.
