@@ -128,7 +128,7 @@ export default function AuthPageRef() {
         <main className="min-h-screen bg-light-bg text-dark-surface antialiased">
             {/* Toast */}
             {toast && (
-                <div className="fixed right-4 top-4 sm:right-5 sm:top-5 z-50 flex items-center gap-3 rounded-xl border border-black/10 bg-white px-4 py-3 text-sm font-medium text-dark-surface shadow-xl shadow-black/10">
+                <div className="fixed bottom-5 right-5 z-50 flex items-center gap-3 rounded-xl border border-black/10 bg-white px-4 py-3 text-sm font-medium text-dark-surface shadow-xl shadow-black/10">
                     <span
                         className={`h-2 w-2 rounded-full ${toast.type === "success"
                             ? "bg-emerald-500"
@@ -163,8 +163,8 @@ export default function AuthPageRef() {
                             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-dark-bg">
                                 <img
                                     src="/runyour.svg"
-                                    alt="RunYourAI"
-                                    className="h-4.5 w-4.5" />
+                                    alt=""
+                                    className="h-4 w-4" />
                             </div>
 
                             <span className="text-sm font-semibold tracking-tight">
